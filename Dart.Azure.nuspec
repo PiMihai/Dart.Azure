@@ -6,7 +6,7 @@
     <authors>Mihai Pirvu</authors>
     <owners>Mihai Pirvu</owners>
     <projectUrl>https://github.com/UizzUW/Dart.Azure</projectUrl>
-    <iconUrl></iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/UizzUW/Dart.Azure/master/icon.png</iconUrl>
     <licenseUrl>https://github.com/UizzUW/Dart.Azure/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dart extension for Microsoft Azure Web Apps</description>
