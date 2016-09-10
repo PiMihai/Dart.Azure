@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Azure.Dart</id>
+    <version>1.0.4</version>
+    <authors>Mihai Pirvu</authors>
+    <owners>Mihai Pirvu</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dart support for Microsoft Azure</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>dart azure extension</tags>
+  </metadata>
+</package>
