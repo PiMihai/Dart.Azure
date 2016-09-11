@@ -1,6 +1,6 @@
 @echo OFF
 
-IF EXIST %HOME%\dart-sdk (
+if EXIST %HOME%\dart-sdk (
 	rmdir %HOME%\dart-sdk /S /Q
 )
 
@@ -10,8 +10,18 @@ curl -k -o .\dart.zip https://storage.googleapis.com/dart-archive/channels/stabl
 echo Unzipping Dart SDK...
 unzip -o .\dart.zip -d %HOME%\
 
-echo Setting up web.config...
-move .\web.config %WEBROOT_PATH%\web.config
+echo Configuring extension...
+set POST_DEPLOY_ACTION_LOCATION=%HOME%\site\deployments\tools\PostDeploymentActions
+md %POST_DEPLOY_ACTION_LOCATION% 2>nul
+move .\deploy.cmd %POST_DEPLOY_ACTION_LOCATION%\deploy.cmd
+
+set %DART_SERVER_PATH%=%WEBROOT_PATH%\server
+set %DART_CLIENT_PATH%=%WEBROOT_PATH%\client
+
+md %DART_SERVER_PATH% 2>nul
+md %DART_CLIENT_PATH% 2>nul
+
+move .\web.config %DART_CLIENT_PATH%\web.config
 
 echo Cleaning up...
 del .\dart.zip
