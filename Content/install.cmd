@@ -1,29 +1,22 @@
-@echo OFF
+@ECHO OFF
 
-if EXIST %HOME%\dart-sdk (
-	rmdir %HOME%\dart-sdk /S /Q
+IF EXIST %HOME%\dart-sdk (
+	RMDIR %HOME%\dart-sdk /S /Q
 )
 
-echo Downloading Dart SDK...
-curl -k -o .\dart.zip https://storage.googleapis.com/dart-archive/channels/stable/release/1.19.0/sdk/dartsdk-windows-ia32-release.zip
+ECHO Downloading Dart SDK...
+CALL curl -k -o .\dart.zip https://storage.googleapis.com/dart-archive/channels/stable/release/1.19.0/sdk/dartsdk-windows-ia32-release.zip
 
-echo Unzipping Dart SDK...
-unzip -o .\dart.zip -d %HOME%\
+ECHO Unzipping Dart SDK...
+CALL unzip -o .\dart.zip -d %HOME%\
 
-echo Configuring extension...
-set POST_DEPLOY_ACTION_LOCATION=%HOME%\site\deployments\tools\PostDeploymentActions
-md %POST_DEPLOY_ACTION_LOCATION% 2>nul
-move .\deploy.cmd %POST_DEPLOY_ACTION_LOCATION%\deploy.cmd
+ECHO Configuring extension...
+SET DEPLOY_ACTION_LOCATION=%HOME%\site\deployments\tools
+MD %DEPLOY_ACTION_LOCATION% 2>nul
+MOVE .\dart_deploy.cmd %DEPLOY_ACTION_LOCATION%\deploy.cmd
+MOVE .\web.config %WEBROOT_PATH%\web.config
 
-set %DART_SERVER_PATH%=%WEBROOT_PATH%\server
-set %DART_CLIENT_PATH%=%WEBROOT_PATH%\client
+ECHO Cleaning up...
+DEL .\dart.zip
 
-md %DART_SERVER_PATH% 2>nul
-md %DART_CLIENT_PATH% 2>nul
-
-move .\web.config %DART_CLIENT_PATH%\web.config
-
-echo Cleaning up...
-del .\dart.zip
-
-echo Done.
+ECHO Done.
