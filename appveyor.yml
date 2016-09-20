@@ -22,7 +22,7 @@ deploy:
   on:
     branch: dev
 - provider: NuGet
-  server: https://www.siteextensions.net/api/v2/
+  server: https://www.siteextensions.net/api/v2/package
   api_key:
     secure: UUiZBu//WolLRbFQ1FKgm1zVjgMk5J64BUqc+X60/mso7eCVoLh4sCOwKmGRvQdu
   skip_symbols: true
