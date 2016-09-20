@@ -29,6 +29,13 @@ IF DEFINED SERVER_SOURCE (
 
     REM restore packages
     CALL %DART_SDK_TEMP%\bin\pub get --no-packages-dir
+
+    REM deploy server to DART_APP
+    IF EXIST %DART_APP% (
+        RMDIR %DART_APP% /S /Q
+    )
+    MD %DART_APP% 2>nul
+    XCOPY %DEPLOYMENT_SOURCE%\*.* %DART_APP%\ /S /E /F
 )
 
 REM ========== CLIENT ==========
@@ -55,15 +62,13 @@ IF DEFINED CLIENT_SOURCE (
 
     REM compile client into JS
     CALL %DART_SDK_TEMP%\bin\pub build
-)
 
-REM delete old version and copy the new one
-IF EXIST %DART_APP% (
-    RMDIR %DART_APP% /S /Q
+    REM deploy client to wwwroot
+    MOVE %WEBROOT_PATH%\web.config %DEPLOYMENT_TEMP%\web.config
+    RMDIR %WEBROOT_PATH% /S /Q
+    MD %WEBROOT_PATH% 2>nul
+    MOVE %DEPLOYMENT_TEMP%\web.config %WEBROOT_PATH%\web.config
+    XCOPY %CLIENT_SOURCE%\build\web\*.* %WEBROOT_PATH%\ /S /E /F
 )
-MD %DART_APP% 2>nul
-
-CD %DEPLOYMENT_SOURCE%
-XCOPY .\*.* %DART_APP%\ /s /e /f
 
 echo Dart deployment finished.

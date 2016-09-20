@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Dart.Azure</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <authors>Mihai Pirvu</authors>
     <owners>Mihai Pirvu</owners>
     <projectUrl>https://github.com/UizzUW/Dart.Azure</projectUrl>

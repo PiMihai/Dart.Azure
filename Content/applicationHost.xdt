@@ -4,7 +4,7 @@
     <runtime xdt:Transform="InsertBefore(/configuration/system.webServer/*[1])">
       <environmentVariables>
         <add name="PUB_CACHE" value="%HOME%\pub_cache" />
-        <add name="DART_APP" value="%HOME%\site\wwwroot\dart-app" />
+        <add name="DART_APP" value="%HOME%\site\dart-app" />
         <add name="DART_SDK" value="%HOME%\dart-sdk" />
         <add name="DART_SDK_TEMP" value="D:\local\dart-sdk" />
         <add name="DART_SERVER_SOURCE_PATH" value="server" />
