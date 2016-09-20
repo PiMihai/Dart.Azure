@@ -1,11 +1,11 @@
 REM ========== SETUP ==========
 
-@echo off
+@ECHO off
 
 REM check if sdk is on the fast drive - if not, copy it
 IF NOT EXIST %DART_SDK_TEMP% (
     MD %DART_SDK_TEMP% 2>nul
-    XCOPY %HOME%\dart-sdk\*.* %DART_SDK_TEMP%\ /s /e /f
+    XCOPY %HOME%\dart-sdk\*.* %DART_SDK_TEMP%\ /S /E /F
 )
 
 REM ========== SERVER ==========
@@ -71,4 +71,4 @@ IF DEFINED CLIENT_SOURCE (
     XCOPY %CLIENT_SOURCE%\build\web\*.* %WEBROOT_PATH%\ /S /E /F
 )
 
-echo Dart deployment finished.
+ECHO Dart deployment finished.

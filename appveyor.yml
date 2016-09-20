@@ -4,6 +4,7 @@ pull_requests:
 branches:
   only:
     - master
+    - dev
 nuget:  
   disable_publish_on_pr: true
 build_script:  
@@ -17,6 +18,13 @@ deploy:
   server: https://www.myget.org/F/uizz-experimental/api/v2/package
   api_key:
     secure: C/dwQV2FGBPnx9i6+T32CWTn+NK2YjAEA3FinSbuRSjeuavUurV050ayU1fuUqpx
+  skip_symbols: true
+  on:
+    branch: dev
+- provider: NuGet
+  server: https://www.siteextensions.net/api/v2/
+  api_key:
+    secure: UUiZBu//WolLRbFQ1FKgm1zVjgMk5J64BUqc+X60/mso7eCVoLh4sCOwKmGRvQdu
   skip_symbols: true
   on:
     branch: master
