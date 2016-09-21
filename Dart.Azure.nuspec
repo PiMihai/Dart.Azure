@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Dart.Azure</id>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <authors>Mihai Pirvu</authors>
     <owners>Mihai Pirvu</owners>
     <projectUrl>https://github.com/UizzUW/Dart.Azure</projectUrl>
@@ -10,7 +10,7 @@
     <licenseUrl>https://github.com/UizzUW/Dart.Azure/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dart extension for Microsoft Azure Web Apps</description>
-    <releaseNotes>Initial release</releaseNotes>
+    <releaseNotes>Bugfixes</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>dart azure extension</tags>
   </metadata>
